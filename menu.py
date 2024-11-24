@@ -18,6 +18,8 @@ class Menu():
     
     def draw(self,screen):
         draw.rect(screen,(255,255,255),Rect(0,0,self.width,self.height))
+    
+    def draw_blocs(self,screen):
         for bloc in self.liste:
             bloc.draw(screen)
     

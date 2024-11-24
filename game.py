@@ -1,6 +1,7 @@
 import pygame
 
 from menu import Menu
+from programm import Programm
 
 class Game():
     is_draging = False
@@ -17,11 +18,12 @@ class Game():
 
         #assets
         self.menu = Menu(300 , self.height)
+        self.programm = Programm(320 , 300 , self.height)
 
-        self.start()
-    
-    def start(self):
+
+        #start game
         self.loop()
+
     
     def loop(self):
         while self.running:
@@ -40,6 +42,9 @@ class Game():
     def draw(self):
         self.win.fill((0,0,0))
         self.menu.draw(self.win)
+        self.programm.draw(self.win)
+        self.menu.draw_blocs(self.win)
+        self.programm.draw_blocs(self.win)
 
     def events(self):
         ev = pygame.event.get()
