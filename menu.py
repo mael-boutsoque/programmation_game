@@ -1,6 +1,8 @@
 from bloc import Bloc
 from pygame import draw , Rect
 
+from programm import Programm
+
 
 class Menu():
     def __init__(self,width,height) -> None:
@@ -13,7 +15,7 @@ class Menu():
             self.add_bloc(Bloc)
     
     def add_bloc(self,bloc:Bloc):
-        id = len(self.liste)+1
+        id = len(self.liste)
         self.liste.append(bloc(self.marge , self.marge*(id+1) + self.bloc_height*id , self.width - 2*self.marge , self.bloc_height ))
     
     def draw(self,screen):
@@ -23,11 +25,11 @@ class Menu():
         for bloc in self.liste:
             bloc.draw(screen)
     
-    def evolve(self,mousex,mousey,mouse_is_clicked):
+    def evolve(self,mousex,mousey,mouse_is_clicked,programm):
         for bloc in self.liste:
             if mouse_is_clicked:
-                if bloc.mousing(mousex,mousey):
+                if bloc.mousing(mousex,mousey,programm):
                     return True
             elif bloc.is_picked :
-                bloc.release()
+                bloc.release(programm)
                 return False

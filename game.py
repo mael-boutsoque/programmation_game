@@ -30,7 +30,7 @@ class Game():
             #moving blocs
             mx,my = pygame.mouse.get_pos()
             m_is_clicked = pygame.mouse.get_pressed()[0]
-            self.is_draging = self.menu.evolve(mx,my,m_is_clicked)
+            self.is_draging = self.menu.evolve(mx,my,m_is_clicked,self.programm)
 
 
 

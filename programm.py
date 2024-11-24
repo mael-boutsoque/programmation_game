@@ -13,7 +13,26 @@ class Programm():
     
     def add_bloc(self,bloc:Bloc):
         #self.liste.append(bloc)
-        pass
+        if bloc.x>self.x and bloc.x+bloc.width<self.x+self.width:
+            id = (bloc.y+self.marge)//self.bloc_height
+            if(id>len(self.liste)):
+                print("ajout du bloc")
+                bloc.move(self.x+self.marge,len(self.liste)*(self.bloc_height+self.marge)+self.marge)
+                self.liste.append(bloc)
+            else:
+                print("implementer la fonction pour decaler les blocs")
+            return True
+        else:
+            return False
+    
+    def remove(self,bloc:Bloc):
+        if bloc in self.liste:
+            self.liste.pop(self.liste.index(bloc))
+            self.move_ups()
+    
+    def move_ups(self):
+        for i in range(1,len(self.liste)):
+            self.liste[i].move(self.x+self.marge,i*(self.bloc_height+self.marge)+self.marge)
     
     def draw(self,screen):
         draw.rect(screen,(255,255,255),Rect(self.x,0,self.width,self.height))
