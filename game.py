@@ -3,6 +3,7 @@ import pygame
 from menu import Menu
 
 class Game():
+    is_draging = False
     def __init__(self) -> None:
         width = 1920
         height = 1080
@@ -24,6 +25,14 @@ class Game():
     
     def loop(self):
         while self.running:
+            #moving blocs
+            mx,my = pygame.mouse.get_pos()
+            m_is_clicked = pygame.mouse.get_pressed()[0]
+            self.is_draging = self.menu.evolve(mx,my,m_is_clicked)
+
+
+
+
             self.events()
             self.draw()
             pygame.display.flip()
