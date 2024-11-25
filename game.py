@@ -5,6 +5,7 @@ from programm import Programm
 
 class Game():
     is_draging = False
+    moving_bloc = None
     def __init__(self) -> None:
         width = 1920
         height = 1080
@@ -30,7 +31,16 @@ class Game():
             #moving blocs
             mx,my = pygame.mouse.get_pos()
             m_is_clicked = pygame.mouse.get_pressed()[0]
-            self.is_draging = self.menu.evolve(mx,my,m_is_clicked,self.programm)
+
+
+            if self.moving_bloc is None and m_is_clicked:
+                self.moving_bloc = self.menu.check_picking(mx,my)
+            elif not self.moving_bloc is None and not m_is_clicked:
+                self.moving_bloc.release(self.programm)
+                self.moving_bloc = None
+
+            if not self.moving_bloc is None:
+                self.moving_bloc.move_center(mx,my)
 
 
 

@@ -14,7 +14,7 @@ class Programm():
     def add_bloc(self,bloc:Bloc):
         #self.liste.append(bloc)
         if bloc.x>self.x and bloc.x+bloc.width<self.x+self.width:
-            id = (bloc.y+self.marge)//self.bloc_height
+            id = (bloc.y+self.marge)//self.bloc_height + 1
             if(id>len(self.liste)):
                 print("ajout du bloc")
                 bloc.move(self.x+self.marge,len(self.liste)*(self.bloc_height+self.marge)+self.marge)
@@ -31,7 +31,7 @@ class Programm():
             self.move_ups()
     
     def move_ups(self):
-        for i in range(1,len(self.liste)):
+        for i in range(0,len(self.liste)):
             self.liste[i].move(self.x+self.marge,i*(self.bloc_height+self.marge)+self.marge)
     
     def draw(self,screen):

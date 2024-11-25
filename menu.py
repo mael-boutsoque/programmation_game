@@ -25,11 +25,8 @@ class Menu():
         for bloc in self.liste:
             bloc.draw(screen)
     
-    def evolve(self,mousex,mousey,mouse_is_clicked,programm):
+    def check_picking(self,mx,my):
         for bloc in self.liste:
-            if mouse_is_clicked:
-                if bloc.mousing(mousex,mousey,programm):
-                    return True
-            elif bloc.is_picked :
-                bloc.release(programm)
-                return False
+            if bloc.pick(mx,my):
+                return bloc
+        return None

@@ -2,7 +2,6 @@ from pygame import draw , Rect
 
 
 class Bloc():
-    is_picked = False
     def __init__(self,x,y,width,height) -> None:
         self.x = x
         self.y = y
@@ -21,16 +20,18 @@ class Bloc():
         self.x = x
         self.y = y
     
-    def mousing(self,x,y,programm):
-        if self.is_picked:
-            self.move(x-self.width/2,y-self.height/2)
+    def move_center(self,x,y):
+        self.x = x-self.width/2
+        self.y = y-self.height/2
+    
+    def pick(self,x,y):
+        if self.colide_point(x,y):
             return True
-
-        elif self.colide_point(x,y):
-            self.is_picked = True
+        else:
+            return False
     
     def release(self,programm):
-        self.is_picked = False
+        print("bloc dropped")
         programm.remove(self)
         programm.add_bloc(self)
     
