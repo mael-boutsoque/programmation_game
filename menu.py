@@ -1,8 +1,7 @@
 from bloc import Bloc
 from pygame import draw , Rect
 
-from programm import Programm
-
+from bloc_move import Bloc_move
 
 class Menu():
     def __init__(self,width,height) -> None:
@@ -12,7 +11,10 @@ class Menu():
         self.bloc_height = 50
         self.liste = []
         for i in range(10):
-            self.add_bloc(Bloc)
+            if(i%2==1):
+                self.add_bloc(Bloc)
+            else:
+                self.add_bloc(Bloc_move)
     
     def add_bloc(self,bloc:Bloc):
         id = len(self.liste)

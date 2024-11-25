@@ -2,6 +2,7 @@ import pygame
 
 from menu import Menu
 from programm import Programm
+from robot import Robot
 
 class Game():
     is_draging = False
@@ -20,6 +21,7 @@ class Game():
         #assets
         self.menu = Menu(300 , self.height)
         self.programm = Programm(320 , 300 , self.height)
+        self.robot = Robot(700,300)
 
 
         #start game
@@ -55,6 +57,7 @@ class Game():
         self.programm.draw(self.win)
         self.menu.draw_blocs(self.win)
         self.programm.draw_blocs(self.win)
+        self.robot.draw(self.win)
 
     def events(self):
         ev = pygame.event.get()
