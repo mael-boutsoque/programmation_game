@@ -49,7 +49,6 @@ class Game():
 
             self.events()
             self.draw()
-            pygame.display.flip()
 
     def draw(self):
         self.win.fill((0,0,0))
@@ -59,8 +58,17 @@ class Game():
         self.programm.draw_blocs(self.win)
         self.robot.draw(self.win)
 
+        pygame.display.flip()
+
     def events(self):
         ev = pygame.event.get()
         for event in ev:
             if event.type == pygame.QUIT:
                 self.running=False
+            
+            if event.type == pygame.KEYDOWN:
+                #print(event)
+
+                if event.key == 32:
+                    print("début")
+                    self.programm.evolve(self.robot,self)

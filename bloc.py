@@ -7,7 +7,8 @@ class Bloc():
         self.y = y
         self.width = width
         self.height = height
-        self.color = (0,255,0)
+        self.color0 = (0,100,0)
+        self.color = self.color0
     
     def draw(self,screen):
         draw.rect(screen , (self.color) , Rect(self.x,self.y,self.width,self.height))
@@ -37,3 +38,11 @@ class Bloc():
     
     def __str__(self) -> str:
         return f"[bloc({self.x},{self.y})]"
+
+    def evole(self,robot):
+        raise NotImplementedError
+    
+    def higtlight(self):
+        self.color = (max(self.color0[0]+50,250),max(self.color0[1]+50,250),max(self.color0[2]+50,250))
+    def unhightlight(self):
+        self.color = self.color0

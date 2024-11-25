@@ -1,3 +1,6 @@
+import time
+
+import pygame
 from bloc import Bloc
 from pygame import draw , Rect
 
@@ -41,11 +44,13 @@ class Programm():
         for bloc in self.liste:
             bloc.draw(screen)
     
-    def evolve(self,mousex,mousey,mouse_is_clicked):
-        for bloc in self.liste:
-            if mouse_is_clicked:
-                if bloc.mousing(mousex,mousey):
-                    return True
-            elif bloc.is_picked :
-                bloc.release()
-                return False
+    def evolve(self , robot , game):
+        id = 0
+        while id < len(self.liste):
+
+            self.liste[id].higtlight()
+            game.draw()
+            time.sleep(0.5)
+            self.liste[id].unhightlight()
+            game.draw()
+            id = self.liste[id].evole(id,robot)
