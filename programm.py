@@ -47,10 +47,12 @@ class Programm():
     def evolve(self , robot , game):
         id = 0
         while id < len(self.liste):
-
-            self.liste[id].higtlight()
+            bloc = self.liste[id]
+            bloc.higtlight()
             game.draw()
-            time.sleep(0.5)
-            self.liste[id].unhightlight()
+            time.sleep(0.1)
+            id = bloc.evole(id,robot)
             game.draw()
-            id = self.liste[id].evole(id,robot)
+            time.sleep(0.6)
+            bloc.unhightlight()
+            game.draw()
