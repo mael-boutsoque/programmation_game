@@ -1,7 +1,7 @@
 from bloc import Bloc
 from pygame import draw , Rect
 
-from blocs import Bloc_move , Bloc_none
+from blocs import Bloc_move , Bloc_none , Bloc_loop
 
 class Menu():
     def __init__(self,width,height) -> None:
@@ -12,7 +12,7 @@ class Menu():
         self.liste = []
         for i in range(10):
             if(i%2==1):
-                self.add_bloc(Bloc_none)
+                self.add_bloc(Bloc_loop)
             else:
                 self.add_bloc(Bloc_move)
     
