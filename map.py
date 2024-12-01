@@ -1,5 +1,3 @@
-from robot import Robot
-
 from pygame import draw , Rect
 
 
@@ -17,7 +15,7 @@ class Map():
         
         self.robot_x = 1
         self.robot_y = 1
-        self.robot = Robot(x,y)
+        self.robot = 1
         self.wait = self.liste[self.robot_x][self.robot_y]
         self.liste[self.robot_x][self.robot_y] = self.robot
     

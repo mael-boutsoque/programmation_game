@@ -3,7 +3,6 @@ import pygame
 from map import Map
 from menu import Menu
 from programm import Programm
-from robot import Robot
 
 class Game():
     is_draging = False

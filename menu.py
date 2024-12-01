@@ -1,8 +1,7 @@
 from bloc import Bloc
 from pygame import draw , Rect
 
-from bloc_move import Bloc_move
-from bloc_none import Bloc_none
+from blocs import Bloc_move , Bloc_none
 
 class Menu():
     def __init__(self,width,height) -> None:
