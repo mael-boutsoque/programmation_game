@@ -44,14 +44,14 @@ class Programm():
         for bloc in self.liste:
             bloc.draw(screen)
     
-    def evolve(self , robot , game):
+    def evolve(self , map , game):
         id = 0
         while id < len(self.liste):
             bloc = self.liste[id]
             bloc.higtlight()
             game.draw()
             time.sleep(0.1)
-            id = bloc.evole(id,robot)
+            id = bloc.evole(id,map)
             game.draw()
             time.sleep(0.6)
             bloc.unhightlight()

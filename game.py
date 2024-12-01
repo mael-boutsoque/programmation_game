@@ -1,5 +1,6 @@
 import pygame
 
+from map import Map
 from menu import Menu
 from programm import Programm
 from robot import Robot
@@ -21,7 +22,7 @@ class Game():
         #assets
         self.menu = Menu(300 , self.height)
         self.programm = Programm(320 , 300 , self.height)
-        self.robot = Robot(700,300)
+        self.map = Map(650,0,10,10,100,100)
 
 
         #start game
@@ -56,7 +57,7 @@ class Game():
         self.programm.draw(self.win)
         self.menu.draw_blocs(self.win)
         self.programm.draw_blocs(self.win)
-        self.robot.draw(self.win)
+        self.map.draw(self.win)
 
         pygame.display.flip()
 
@@ -71,4 +72,4 @@ class Game():
 
                 if event.key == 32:
                     print("début")
-                    self.programm.evolve(self.robot,self)
+                    self.programm.evolve(self.map,self)

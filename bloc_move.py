@@ -7,9 +7,9 @@ class Bloc_move(Bloc):
         self.color0 = (0,0,100)
         self.color = self.color0
     
-    def evole(self, id , robot):
+    def evole(self, id , map):
         print("move")
-        robot.move_rel(0,100)
+        map.move(0,1)
 
         #next
         return id+1

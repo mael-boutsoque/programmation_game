@@ -7,7 +7,7 @@ class Bloc_none(Bloc):
         self.color0 = (100,0,0)
         self.color = self.color0
     
-    def evole(self, id , robot):
+    def evole(self, id , map):
         print("none")
 
         #next

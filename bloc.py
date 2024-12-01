@@ -1,4 +1,4 @@
-from pygame import draw , Rect
+from pygame import draw , Rect , font
 
 
 class Bloc():
@@ -9,9 +9,11 @@ class Bloc():
         self.height = height
         self.color0 = (0,100,0)
         self.color = self.color0
+        self.font = font.SysFont('Comic Sans MS', 25)
     
     def draw(self,screen):
         draw.rect(screen , (self.color) , Rect(self.x,self.y,self.width,self.height))
+        screen.blit(self.font.render(self.__class__.__name__,True,(255,255,255)) , (self.x,self.y))
     
     def colide_point(self,x,y):
         self.hitbox = Rect(self.x,self.y,self.width,self.height)
@@ -39,7 +41,7 @@ class Bloc():
     def __str__(self) -> str:
         return f"[bloc({self.x},{self.y})]"
 
-    def evole(self,robot):
+    def evole(self,map):
         raise NotImplementedError
     
     def higtlight(self):
